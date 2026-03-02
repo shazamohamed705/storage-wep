@@ -16,7 +16,7 @@ export default function FacebookSection() {
             {/* Main heading */}
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight text-right">
               هيمن على<br />
-              <span className="text-gray-500">المنصة</span> الأكبر.
+              <span className="text-gray-500"> المنصة الأكبر.</span> 
             </h2>
 
             {/* Description */}
@@ -94,30 +94,23 @@ export default function FacebookSection() {
               </div>
 
               {/* Bottom left chat bubble */}
-              <div className="absolute bottom-20 left-6 z-20">
-                <div className="backdrop-blur-md px-4 py-3 relative" style={{ 
-                  background: 'rgba(10, 10, 12, 0.1)', 
-                  border: '1px solid rgba(34, 197, 94, 0.5)',
-                  borderRadius: '0 16px 16px 16px',
-                  width: '238px',
-                  height: '117px'
-                }}>
-                  <div className="flex items-center gap-2 mb-2 justify-end">
-                    <span className="text-gray-300 text-xs">تم إرسال الرد تلقائياً</span>
-                    <div className="w-4 h-4 rounded flex items-center justify-center" style={{ background: '#22C55E' }}>
-                      <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                      </svg>
+              <div className="absolute bottom-12 left-6 z-20">
+                <div className="relative inline-block">
+                  {/* Message Card */}
+                  <div className="relative bg-[#0F172A] border border-blue-900/40 rounded-2xl px-4 py-3 shadow-[0_0_40px_rgba(0,120,255,0.15)] text-white w-[260px] flex flex-col items-center">
+                    {/* Success Badge */}
+                    <div className="flex items-center gap-2 bg-green-500/10 text-green-400 text-xs px-2.5 py-1 rounded-full mb-2">
+                      <span className="text-green-400 text-base">✔</span>
+                      تم إرسال الرد تلقائياً
                     </div>
-                  </div>
-                  <div className="px-3 py-1.5 rounded-lg text-center" style={{ background: 'rgba(59, 130, 246, 0.2)', border: '1px solid rgba(59, 130, 246, 0.3)' }}>
-                    <p className="text-blue-400 text-xs font-semibold">Automated Reply</p>
+                    {/* Auto Reply Badge */}
+                    <div className="bg-blue-600/20 text-blue-400 text-xs px-2.5 py-1 rounded-full">
+                      Automated Reply
+                    </div>
+                    {/* Chat Tail */}
+                    <div className="absolute -bottom-3 left-8 w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-t-[12px] border-t-[#0F172A]"></div>
                   </div>
                 </div>
-                {/* WhatsApp-style tail */}
-                <svg className="absolute top-0 -left-2" width="12" height="20" viewBox="0 0 12 20" fill="none" style={{ opacity: 0.1 }}>
-                  <path d="M0 0C0 0 12 0 12 10C12 20 0 20 0 20V0Z" fill="rgba(10, 10, 12, 1)"/>
-                </svg>
               </div>
 
               {/* Connecting lines */}

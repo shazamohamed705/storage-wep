@@ -5,6 +5,9 @@ import ControlSection from './components/ControlSection';
 import TikTokSection from './components/TikTokSection';
 import TwitterSection from './components/TwitterSection';
 import FacebookSection from './components/FacebookSection';
+import InstagramSection from './components/InstagramSection';
+import PricingSection from './components/PricingSection';
+import Footer from './components/Footer';
 
 export default function Home() {
   return (
@@ -16,6 +19,9 @@ export default function Home() {
       <TikTokSection />
       <TwitterSection />
       <FacebookSection />
+      <InstagramSection />
+      <PricingSection />
+      <Footer />
     </div>
   );
 }
