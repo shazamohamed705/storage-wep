@@ -83,19 +83,19 @@ export default function FeaturesSection() {
             </div>
 
             {/* Card 3 - Growth Chart */}
-            <div className="backdrop-blur-sm rounded-3xl p-8 lg:p-12 relative overflow-hidden group hover:border-purple-500/50 transition-all w-full lg:w-[680px] h-auto lg:h-[200px]" style={{ border: '1px solid rgba(75, 85, 99, 0.5)', background: '#0A0A0C' }}>
+            <div className="backdrop-blur-sm rounded-3xl p-4 md:p-8 lg:p-12 relative overflow-hidden group hover:border-purple-500/50 transition-all w-full lg:w-[680px] h-auto min-h-[200px] md:min-h-[240px] lg:h-[200px]" style={{ border: '1px solid rgba(75, 85, 99, 0.5)', background: '#0A0A0C' }}>
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               
               {/* Text content at very top */}
-              <div className="relative z-10 -mt-6">
-                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-1 text-right">نمو متصاعد</h3>
-                <p className="text-gray-400 text-sm lg:text-base text-right">
+              <div className="relative z-10 mb-2 md:mb-2 lg:mb-0 lg:-mt-6">
+                <h3 className="text-base md:text-2xl lg:text-3xl font-bold text-white mb-0.5 md:mb-1 text-right">نمو متصاعد</h3>
+                <p className="text-gray-400 text-[11px] md:text-sm lg:text-base text-right">
                   تطبيقات دقيقة لنتائج البونات.
                 </p>
               </div>
 
-              {/* Growth chart visualization - moved up */}
-              <div className="absolute bottom-4 left-0 right-0 h-32 px-0 z-10">
+              {/* Growth chart visualization - responsive positioning */}
+              <div className="relative w-full h-24 md:h-28 mt-2 md:mt-2 lg:absolute lg:bottom-4 lg:left-0 lg:right-0 lg:h-32 lg:mt-0 px-0 z-10">
                 <svg className="w-full h-full" viewBox="0 0 700 120" preserveAspectRatio="none">
                   {/* Filled area under the curve with gradient */}
                   <defs>

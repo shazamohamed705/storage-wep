@@ -82,18 +82,13 @@ export default function TikTokSection() {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full blur-2xl z-0" style={{ background: '#EC1BB1', opacity: 0.1 }}></div>
               
               {/* Growth badge - outside phone */}
-              <div className="absolute backdrop-blur-md rounded-xl text-left z-20" style={{ 
+              <div className="absolute backdrop-blur-md rounded-lg lg:rounded-xl text-left z-20 w-[180px] h-[70px] lg:w-[260px] lg:h-[100px] bottom-20 -left-4 lg:bottom-[80px] lg:left-[-130px] p-2 lg:p-[16px_20px]" style={{ 
                 background: 'rgba(10, 10, 12, 0.8)', 
-                border: '1px solid #EC1BB1',
-                width: '260px',
-                height: '100px',
-                bottom: '80px',
-                left: '-130px',
-                padding: '16px 20px'
+                border: '1px solid #EC1BB1'
               }}>
-                <p className="text-xs font-semibold text-white mb-1">معدل النمو</p>
-                <p className="text-white font-bold text-2xl mb-2">+999%</p>
-                <svg className="w-full h-10" viewBox="0 0 240 40" fill="none" preserveAspectRatio="none">
+                <p className="text-[10px] lg:text-xs font-semibold text-white mb-0.5 lg:mb-1">معدل النمو</p>
+                <p className="text-white font-bold text-sm lg:text-2xl mb-1 lg:mb-2">+999%</p>
+                <svg className="w-full h-5 lg:h-10" viewBox="0 0 240 40" fill="none" preserveAspectRatio="none">
                   <path d="M15 20 L40 16 L72 18 L104 10 L136 7 L168 6 L200 5 L218 4" stroke="#d454bcff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                   <path d="M218 -2 L225 4 L218 10 Z" fill="#d454bcff" stroke="#d454bcff" strokeWidth="1"/>
                   

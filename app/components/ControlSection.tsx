@@ -63,20 +63,20 @@ export default function ControlSection() {
           <div className="w-full lg:w-auto flex justify-center lg:justify-start flex-shrink-0">
             <div className="relative">
               {/* Views badge - outside phone on right edge */}
-              <div className="absolute top-32 -right-16 backdrop-blur-md border border-purple-500/30 rounded-xl px-4 py-3 text-right z-20" style={{ background: 'rgba(10, 10, 12, 0.3)' }}>
-                <p className="text-sm font-semibold" style={{ color: '#EBE448' }}>مشاهدات جديدة</p>
-                <div className="flex items-center gap-2 justify-end">
-                  <span className="text-xl">👁</span>
-                  <p className="text-white font-bold text-xl">+1,200</p>
+              <div className="absolute top-32 -right-4 lg:-right-16 backdrop-blur-md border border-purple-500/30 rounded-lg lg:rounded-xl px-2 py-1.5 lg:px-4 lg:py-3 text-right z-20" style={{ background: 'rgba(10, 10, 12, 0.3)' }}>
+                <p className="text-[10px] lg:text-sm font-semibold" style={{ color: '#EBE448' }}>مشاهدات جديدة</p>
+                <div className="flex items-center gap-1 lg:gap-2 justify-end">
+                  <span className="text-sm lg:text-xl">👁</span>
+                  <p className="text-white font-bold text-sm lg:text-xl">+1,200</p>
                 </div>
               </div>
 
               {/* Followers badge - outside phone on left edge, lower */}
-              <div className="absolute bottom-36 -left-16 backdrop-blur-md rounded-xl px-4 py-3 text-left z-30" style={{ background: 'rgba(10, 10, 12, 0.3)', border: '1px solid #EC1BB1' }}>
-                <p className="text-sm font-semibold" style={{ color: '#EC1BB1' }}>متابعين جدد</p>
-                <div className="flex items-center gap-2 justify-start">
-                  <span className="text-xl">👥</span>
-                  <p className="text-white font-bold text-xl">+850</p>
+              <div className="absolute bottom-36 -left-4 lg:-left-16 backdrop-blur-md rounded-lg lg:rounded-xl px-2 py-1.5 lg:px-4 lg:py-3 text-left z-30" style={{ background: 'rgba(10, 10, 12, 0.3)', border: '1px solid #EC1BB1' }}>
+                <p className="text-[10px] lg:text-sm font-semibold" style={{ color: '#EC1BB1' }}>متابعين جدد</p>
+                <div className="flex items-center gap-1 lg:gap-2 justify-start">
+                  <span className="text-sm lg:text-xl">👥</span>
+                  <p className="text-white font-bold text-sm lg:text-xl">+850</p>
                 </div>
               </div>
               

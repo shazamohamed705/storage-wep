@@ -14,7 +14,7 @@ export default function PricingSection() {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
-            خطط مرنة تناسب <span style={{ color: '#EBE448' }}>طموحك</span>
+            خطط مرنة تناسب <span className="text-gray-500">طموحك</span>
           </h2>
           <p className="text-gray-400 text-lg">
             ادفع فقط مقابل ما تحتاج. لا رسوم خفية. لا اشتراكات معقدة.
@@ -22,7 +22,7 @@ export default function PricingSection() {
         </div>
 
         {/* Platform Tabs */}
-        <div className="flex justify-center gap-7 mb-12 flex-wrap">
+        <div className="flex justify-center gap-3 md:gap-7 mb-12 flex-wrap">
           {[
             { name: 'Snapchat', emoji: '👻' },
             { name: 'X (Twitter)', emoji: '🐦' },
@@ -32,32 +32,33 @@ export default function PricingSection() {
             <button
               key={platform.name}
               onClick={() => setSelectedPlatform(platform.name)}
-              className={`px-8 py-3 rounded-full font-semibold transition-all ${
+              className={`px-4 md:px-8 py-2 md:py-3 rounded-full text-sm md:text-base font-semibold transition-all ${
                 selectedPlatform === platform.name
                   ? ''
                   : 'text-gray-500 hover:text-gray-400'
               }`}
               style={selectedPlatform === platform.name ? { background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(235, 228, 72, 0.3) 100%)', border: '2px solid rgba(235, 228, 72, 0.4)', color: '#EBE448' } : { background: 'rgba(60, 60, 65, 0.5)', border: '1px solid rgba(100, 100, 105, 0.3)' }}
             >
-              {platform.name} {platform.emoji}
+              <span className="hidden md:inline">{platform.name} {platform.emoji}</span>
+              <span className="md:hidden">{platform.emoji}</span>
             </button>
           ))}
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-40 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-40 items-start">
           
           {/* Right side - Service Selection */}
           <div className="order-1 lg:order-1">
             
             {/* Service Type */}
             <div className="mb-8">
-              <h4 className="text-white text-xl font-bold mb-4 text-right">نوع الخدمة</h4>
-              <div className="flex gap-4 flex-wrap">
+              <h4 className="text-white text-lg md:text-xl font-bold mb-4 text-right">نوع الخدمة</h4>
+              <div className="flex gap-2 md:gap-4 flex-wrap justify-end">
                 {['زيادة متابعين', 'مشاهدات (Views)', 'رفع للسكور'].map((service) => (
                   <button
                     key={service}
                     onClick={() => setSelectedService(service)}
-                    className={`px-6 py-3 rounded-xl font-semibold transition-all ${
+                    className={`px-3 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl text-xs md:text-base font-semibold transition-all ${
                       selectedService === service
                         ? 'text-white'
                         : 'bg-gray-800/50 text-gray-400 hover:bg-gray-800'
@@ -72,9 +73,9 @@ export default function PricingSection() {
 
             {/* Quantity Slider */}
             <div className="mb-8">
-              <div className="flex justify-between items-center mb-4">
-                <h4 className="text-white text-xl font-bold text-right">الكمية المطلوبة</h4>
-                <p className="text-3xl font-bold" style={{ color: '#EBE448' }}>{quantity.toLocaleString()} متابع</p>
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-2">
+                <h4 className="text-white text-lg md:text-xl font-bold text-right">الكمية المطلوبة</h4>
+                <p className="text-2xl md:text-3xl font-bold" style={{ color: '#EBE448' }}>{quantity.toLocaleString()} متابع</p>
               </div>
               
               <div className="relative" dir="rtl">
@@ -124,39 +125,39 @@ export default function PricingSection() {
           </div>
 
           {/* Left side - Price Card */}
-          <div className="order-2 lg:order-2">
-            <div className="rounded-3xl p-8 w-full lg:w-[380px] lg:h-[420px] flex flex-col justify-between relative overflow-hidden" style={{ background: 'rgba(30, 30, 35, 0.8)', border: '1px solid rgba(75, 85, 99, 0.3)' }}>
+          <div className="order-2 lg:order-2 w-full flex justify-center">
+            <div className="rounded-3xl p-6 md:p-8 w-full max-w-[380px] lg:w-[380px] min-h-[380px] lg:h-[420px] flex flex-col justify-between relative overflow-hidden" style={{ background: 'rgba(30, 30, 35, 0.8)', border: '1px solid rgba(75, 85, 99, 0.3)' }}>
               {/* Yellow gradient inside box */}
               <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, #EBE448 0%, rgba(235, 228, 72, 0) 100%)', opacity: 0.09 }}></div>
               
               <div className="relative z-10">
                 <p className="text-gray-400 text-sm mb-2 text-center">الإجمالي الشهر</p>
-                <h3 className="text-6xl font-bold text-white text-center mb-4">$49.99</h3>
+                <h3 className="text-5xl md:text-6xl font-bold text-white text-center mb-4">$49.99</h3>
                 {/* Dotted line */}
                 <div className="w-full h-px mb-4" style={{ backgroundImage: 'radial-gradient(circle, #f6f6f2ff 1px, transparent 1px)', backgroundSize: '8px 2px', backgroundRepeat: 'repeat-x', backgroundPosition: 'center' }}></div>
               </div>
               
-              <div className="space-y-3 mb-8 relative z-10">
-                <div className="flex items-center justify-center gap-3 text-white">
+              <div className="space-y-2 md:space-y-3 mb-6 md:mb-8 relative z-10">
+                <div className="flex items-center justify-center gap-2 md:gap-3 text-white text-sm md:text-base">
                   <span style={{ color: '#EBE448', minWidth: '10px', textAlign: 'center' }}>●</span>
                   <span>ضمانة استبدال كامل</span>
                 </div>
-                <div className="flex items-center justify-center gap-3 text-white">
+                <div className="flex items-center justify-center gap-2 md:gap-3 text-white text-sm md:text-base">
                   <span style={{ color: '#EBE448', minWidth: '10px', textAlign: 'center' }}>●</span>
                   <span>استجابة متابعين حقيقيين</span>
                 </div>
-                <div className="flex items-center justify-center gap-3 text-white">
+                <div className="flex items-center justify-center gap-2 md:gap-3 text-white text-sm md:text-base">
                   <span style={{ color: '#EBE448', minWidth: '10px', textAlign: 'center' }}>●</span>
                   <span>التسليم 30 يوم بتوصي</span>
                 </div>
-                <div className="flex items-center justify-center gap-3 text-white">
+                <div className="flex items-center justify-center gap-2 md:gap-3 text-white text-sm md:text-base">
                   <span style={{ color: '#EBE448', minWidth: '10px', textAlign: 'center' }}>●</span>
                   <span>دعم فني 24/7 مجاني</span>
                 </div>
               </div>
 
               <div className="relative z-10">
-                <button className="w-full py-4 rounded-full font-bold text-black text-lg transition-all hover:scale-105" style={{ background: '#EBE448', boxShadow: '0 10px 40px rgba(235, 228, 72, 0.5), 0 5px 20px rgba(235, 228, 72, 0.3)' }}>
+                <button className="w-full py-3 md:py-4 rounded-full font-bold text-black text-base md:text-lg transition-all hover:scale-105" style={{ background: '#EBE448', boxShadow: '0 10px 40px rgba(235, 228, 72, 0.5), 0 5px 20px rgba(235, 228, 72, 0.3)' }}>
                   اتمام الطلب الآن
                 </button>
               </div>

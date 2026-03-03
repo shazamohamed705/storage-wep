@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Storage - بونات ذكية تشتغل بدالك",
   description: "حلول أمنة متكاملة لنمو حساباتك وأعمالك بسرعة فائقة",
+  icons: {
+    icon: '/16748711948c681c74613bd74259d711f0030872.png',
+  },
 };
 
 export const viewport: Viewport = {

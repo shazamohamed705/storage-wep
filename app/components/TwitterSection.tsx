@@ -26,7 +26,7 @@ export default function TwitterSection() {
             </p>
 
             {/* Features list */}
-            <div className="space-y-6">
+            <div className="space-y-3">
               {/* Feature 1 */}
               <div className="flex items-center gap-4 backdrop-blur-sm rounded-2xl p-4 w-auto" >
                 <div className="w-10 h-10 rounded-xl backdrop-blur-sm flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(139, 92, 246, 0.1)', border: '1px solid rgba(139, 92, 246, 0.3)' }}>
@@ -121,19 +121,17 @@ export default function TwitterSection() {
                 </div>
 
                 {/* Trend badge - positioned half outside */}
-                <div className="absolute bottom-5 -right-25 flex items-center justify-between p-3 rounded-2xl flex-row-reverse" style={{ 
+                <div className="absolute -bottom-2 lg:-bottom-1 -right-2 lg:-right-25 flex items-center justify-between p-1.5 lg:p-3 rounded-lg lg:rounded-2xl flex-row-reverse w-[110px] h-[42px] lg:w-[180px] lg:h-[70px]" style={{ 
                   background: 'rgba(0, 0, 0, 0.8)', 
                   border: '1px solid rgba(34, 197, 94, 0.5)',
-                  width: '180px',
-                  height: '70px',
                   backdropFilter: 'blur(10px)'
                 }}>
-                  <svg className="w-8 h-8" style={{ color: '#22C55E' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 lg:w-8 lg:h-8" style={{ color: '#22C55E' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 10l7-7m0 0l7 7m-7-7v18" />
                   </svg>
                   <div className="text-right">
-                    <p className="text-xs text-gray-400 mb-1">Trend Rank</p>
-                    <p className="font-bold text-xl" style={{ color: '#22C55E' }}>#1 KSA</p>
+                    <p className="text-[9px] lg:text-xs text-gray-400 mb-0.5 lg:mb-1">Trend Rank</p>
+                    <p className="font-bold text-xs lg:text-xl" style={{ color: '#22C55E' }}>#1 KSA</p>
                   </div>
                 </div>
               </div>

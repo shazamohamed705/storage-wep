@@ -10,28 +10,28 @@ export default function InstagramSection() {
           <div className="w-full lg:w-auto flex justify-center lg:justify-start flex-shrink-0">
             <div className="relative">
               {/* Growth indicator badge */}
-              <div className="absolute -left-30 bottom-15 backdrop-blur-md rounded-xl px-4 py-3 z-20" style={{ background: 'rgba(10, 10, 12, 0.8)', border: '1px solid rgba(236, 27, 177, 0.5)' }}>
-                <p className="text-xs text-gray-400 mb-1 text-right">المتابعين</p>
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="absolute -left-4 lg:-left-30 bottom-15 lg:bottom-15 backdrop-blur-md rounded-lg lg:rounded-xl px-2 py-1.5 lg:px-4 lg:py-3 z-20 w-[120px] lg:w-auto" style={{ background: 'rgba(10, 10, 12, 0.8)', border: '1px solid rgba(236, 27, 177, 0.5)' }}>
+                <p className="text-[10px] lg:text-xs text-gray-400 mb-0.5 lg:mb-1 text-right">المتابعين</p>
+                <div className="flex items-center gap-1 lg:gap-2">
+                  <svg className="w-4 h-4 lg:w-5 lg:h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 10l7-7m0 0l7 7m-7-7v18" />
                   </svg>
-                  <p className="text-white font-bold text-2xl">250.4K</p>
+                  <p className="text-white font-bold text-base lg:text-2xl">250.4K</p>
                 </div>
               </div>
 
               {/* Phone frame */}
               <div className="w-[320px] h-[650px] rounded-[3rem] border-8 border-gray-800 shadow-2xl overflow-visible relative" style={{ background: '#000000' }}>
                 {/* New Viral Post badge - half outside */}
-                <div className="absolute top-32 -right-24 z-30 flex items-center gap-3 px-4 py-2 rounded-xl" style={{ background: 'rgba(50, 50, 55, 0.9)' }}>
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'linear-gradient(135deg, #EC1BB1 0%, #FF1744 100%)' }}>
-                    <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <div className="absolute top-32 -right-4 lg:-right-24 z-30 flex items-center gap-2 lg:gap-3 px-2 py-1.5 lg:px-4 lg:py-2 rounded-lg lg:rounded-xl w-[140px] lg:w-auto" style={{ background: 'rgba(50, 50, 55, 0.9)' }}>
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'linear-gradient(135deg, #EC1BB1 0%, #FF1744 100%)' }}>
+                    <svg className="w-4 h-4 lg:w-5 lg:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>
                     </svg>
                   </div>
                   <div className="text-left">
-                    <p className="text-sm font-bold text-white">New Viral Post</p>
-                    <p className="text-xs text-gray-400">Trending now 🔥</p>
+                    <p className="text-xs lg:text-sm font-bold text-white">New Viral Post</p>
+                    <p className="text-[10px] lg:text-xs text-gray-400">Trending now 🔥</p>
                   </div>
                 </div>
 
