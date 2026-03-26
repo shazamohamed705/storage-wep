@@ -44,21 +44,23 @@ export default function Navbar() {
         <div className="absolute inset-0 flex items-center justify-between px-4 md:px-8">
           {/* Logo */}
           <div className="flex items-center">
-            <img src="/16748711948c681c74613bd74259d711f0030872.png" alt="Storage Logo" className="h-12 md:h-15" />
+            <a href="/">
+              <img src="/16748711948c681c74613bd74259d711f0030872.png" alt="Storage Logo" className="h-12 md:h-15 cursor-pointer" />
+            </a>
           </div>
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center gap-10">
-            <a href="#" className="text-white hover:text-pink-400 transition-colors">
+            <a href="/" className="text-white hover:text-pink-400 transition-colors">
               الرئيسية
             </a>
-            <a href="#" className="text-white hover:text-pink-400 transition-colors">
+            <a href="/features" className="text-white hover:text-pink-400 transition-colors">
               المميزات
             </a>
-            <a href="#" className="text-white hover:text-pink-400 transition-colors">
+            <a href="/pricing" className="text-white hover:text-pink-400 transition-colors">
               الأسعار
             </a>
-            <a href="#" className="text-white hover:text-pink-400 transition-colors">
+            <a href="/about" className="text-white hover:text-pink-400 transition-colors">
               من نحن
             </a>
           </div>
@@ -71,9 +73,9 @@ export default function Navbar() {
             >
               {isArabic ? 'EN' : 'AR'} ▼
             </button>
-            <button className="hidden md:block px-10 py-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full hover:shadow-lg hover:shadow-pink-500/50 transition-all border border-transparent text-base font-medium">
+            <a href="/register" className="hidden md:block px-10 py-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full hover:shadow-lg hover:shadow-pink-500/50 transition-all border border-transparent text-base font-medium">
               ابدأ الآن
-            </button>
+            </a>
             
             {/* Mobile Menu Button */}
             <button 
@@ -96,21 +98,21 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div className="md:hidden mt-4 bg-[#1a0b2e]/95 backdrop-blur-xl rounded-3xl p-6 border border-purple-400/30">
           <div className="flex flex-col gap-4">
-            <a href="#" className="text-white hover:text-pink-400 transition-colors text-right py-2">
+            <a href="/" className="text-white hover:text-pink-400 transition-colors text-right py-2">
               الرئيسية
             </a>
-            <a href="#" className="text-white hover:text-pink-400 transition-colors text-right py-2">
+            <a href="/features" className="text-white hover:text-pink-400 transition-colors text-right py-2">
               المميزات
             </a>
-            <a href="#" className="text-white hover:text-pink-400 transition-colors text-right py-2">
+            <a href="/pricing" className="text-white hover:text-pink-400 transition-colors text-right py-2">
               الأسعار
             </a>
-            <a href="#" className="text-white hover:text-pink-400 transition-colors text-right py-2">
+            <a href="/about" className="text-white hover:text-pink-400 transition-colors text-right py-2">
               من نحن
             </a>
-            <button className="w-full py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full hover:shadow-lg hover:shadow-pink-500/50 transition-all mt-2">
+            <a href="/register" className="w-full py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full hover:shadow-lg hover:shadow-pink-500/50 transition-all mt-2 text-center block">
               ابدأ الآن
-            </button>
+            </a>
           </div>
         </div>
       )}

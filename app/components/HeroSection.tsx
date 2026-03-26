@@ -58,9 +58,9 @@ export default function HeroSection() {
                 ابدأ الآن مجاناً
               </button>
               
-              <button className="flex items-center justify-center gap-2 px-4 md:px-6 py-2.5 md:py-3 bg-white/10 border border-white/20 text-white text-sm md:text-base rounded-full hover:bg-white/20 transition-all">
+              <button className="flex items-center justify-center gap-2 px-8 md:px-10 py-2.5 md:py-3 bg-white/10 text-white text-sm md:text-base rounded-full hover:bg-white/20 transition-all">
                 <span>شاهد الفيديو</span>
-                <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-6 h-6 md:w-7 md:h-7" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
                 </svg>
               </button>
