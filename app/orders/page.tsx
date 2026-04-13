@@ -70,28 +70,28 @@ export default function OrdersLog() {
     <div className="min-h-screen bg-black text-white" dir="rtl">
       <Sidebar isOpen={sidebarOpen} activeSection={activeSection} setActiveSection={setActiveSection} />
       
-      <div className={`transition-all duration-300 ${sidebarOpen ? 'mr-80' : 'mr-0'}`}>
+      <div className={`transition-all duration-300 ${sidebarOpen ? 'md:mr-80' : 'mr-0'}`}>
         <Header />
         
         <main className="p-6">
           {/* Header */}
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center justify-between mb-6 gap-3">
             <div>
-              <h1 className="text-3xl font-bold">سجل الطلبات</h1>
-              <p className="text-gray-400 mt-1">تتبع حالة البوتات النمو والعمليات السابقة</p>
+              <h1 className="text-xl md:text-3xl font-bold">سجل الطلبات</h1>
+              <p className="text-gray-400 mt-1 text-sm">تتبع حالة البوتات النمو والعمليات السابقة</p>
             </div>
-            <button className="flex items-center gap-2 px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg hover:bg-gray-700 transition-colors">
+            <button className="flex items-center gap-2 px-3 md:px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg hover:bg-gray-700 transition-colors text-sm flex-shrink-0">
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                 <polyline points="7 10 12 15 17 10"/>
                 <line x1="12" y1="15" x2="12" y2="3"/>
               </svg>
-              <span>تصدير CSV</span>
+              <span className="hidden sm:inline">تصدير CSV</span>
             </button>
           </div>
 
           {/* Search and Filters */}
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-6">
             <div className="flex-1 relative">
               <input
                 type="text"
@@ -103,22 +103,16 @@ export default function OrdersLog() {
                 <path d="m21 21-4.35-4.35"/>
               </svg>
             </div>
-            <button className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
-              الكل
-            </button>
-            <button className="px-6 py-3 bg-gray-900 text-gray-400 rounded-lg hover:bg-gray-800 transition-colors">
-              قيد التنفيذ (4)
-            </button>
-            <button className="px-6 py-3 bg-gray-900 text-gray-400 rounded-lg hover:bg-gray-800 transition-colors">
-              مكتمل (12)
-            </button>
-            <button className="px-6 py-3 bg-gray-900 text-gray-400 rounded-lg hover:bg-gray-800 transition-colors">
-              ملغي (1)
-            </button>
+            <div className="flex gap-2 overflow-x-auto hide-scrollbar">
+              <button className="px-4 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors whitespace-nowrap text-sm flex-shrink-0">الكل</button>
+              <button className="px-4 py-3 bg-gray-900 text-gray-400 rounded-lg hover:bg-gray-800 transition-colors whitespace-nowrap text-sm flex-shrink-0">قيد التنفيذ (4)</button>
+              <button className="px-4 py-3 bg-gray-900 text-gray-400 rounded-lg hover:bg-gray-800 transition-colors whitespace-nowrap text-sm flex-shrink-0">مكتمل (12)</button>
+              <button className="px-4 py-3 bg-gray-900 text-gray-400 rounded-lg hover:bg-gray-800 transition-colors whitespace-nowrap text-sm flex-shrink-0">ملغي (1)</button>
+            </div>
           </div>
 
-          {/* Orders Table */}
-          <div className="bg-[#0f0f0f] border border-gray-800 rounded-xl overflow-hidden">
+          {/* Orders Table - Desktop */}
+          <div className="hidden md:block bg-[#0f0f0f] border border-gray-800 rounded-xl overflow-hidden">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-gray-800">
@@ -135,9 +129,7 @@ export default function OrdersLog() {
                   <tr key={index} className="border-b border-gray-800 hover:bg-gray-900/50 transition-colors">
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-xl">
-                          {order.icon}
-                        </div>
+                        <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-xl">{order.icon}</div>
                         <div>
                           <div className="font-medium">{order.service}</div>
                           <div className="text-sm text-gray-400">{order.platform}</div>
@@ -146,23 +138,12 @@ export default function OrdersLog() {
                     </td>
                     <td className="px-6 py-4 font-mono text-gray-300">{order.id}</td>
                     <td className="px-6 py-4">
-                      <div className="text-sm">
-                        <div>{order.date}</div>
-                        <div className="text-gray-400">{order.time}</div>
-                      </div>
+                      <div className="text-sm"><div>{order.date}</div><div className="text-gray-400">{order.time}</div></div>
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
                         <div className="flex-1 bg-gray-800 rounded-full h-2 overflow-hidden">
-                          <div
-                            className={`h-full ${
-                              order.statusColor === 'yellow' ? 'bg-yellow-500' :
-                              order.statusColor === 'green' ? 'bg-green-500' :
-                              order.statusColor === 'pink' ? 'bg-pink-500' :
-                              'bg-gray-700'
-                            }`}
-                            style={{ width: `${order.progress}%` }}
-                          ></div>
+                          <div className={`h-full ${order.statusColor === 'yellow' ? 'bg-yellow-500' : order.statusColor === 'green' ? 'bg-green-500' : order.statusColor === 'pink' ? 'bg-pink-500' : 'bg-gray-700'}`} style={{ width: `${order.progress}%` }} />
                         </div>
                         <span className="text-sm text-gray-400 min-w-[40px]">{order.progress}%</span>
                       </div>
@@ -175,43 +156,73 @@ export default function OrdersLog() {
                         order.statusColor === 'purple' ? 'bg-purple-500/10 border-purple-500/30 text-purple-500' :
                         'bg-red-500/10 border-red-500/30 text-red-500'
                       }`}>
-                        {order.progress > 0 && order.progress < 100 && <span className="w-2 h-2 bg-current rounded-full animate-pulse"></span>}
+                        {order.progress > 0 && order.progress < 100 && <span className="w-2 h-2 bg-current rounded-full animate-pulse" />}
                         {order.status}
                       </span>
                     </td>
                     <td className="px-6 py-4">
                       <button className="text-gray-400 hover:text-white transition-colors">
-                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <circle cx="12" cy="12" r="1"/>
-                          <circle cx="12" cy="5" r="1"/>
-                          <circle cx="12" cy="19" r="1"/>
-                        </svg>
+                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
                       </button>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
-
-            {/* Pagination */}
             <div className="flex items-center justify-between px-6 py-4 border-t border-gray-800">
-              <div className="text-sm text-gray-400">
-                إظهاراً 1 إلى 5 من 24 طلب
-              </div>
+              <div className="text-sm text-gray-400">إظهاراً 1 إلى 5 من 24 طلب</div>
               <div className="flex items-center gap-2">
-                <button className="w-8 h-8 flex items-center justify-center rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <polyline points="15 18 9 12 15 6"/>
-                  </svg>
-                </button>
+                <button className="w-8 h-8 flex items-center justify-center rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors"><svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6"/></svg></button>
                 <button className="w-8 h-8 flex items-center justify-center rounded-lg bg-purple-600 text-white">1</button>
                 <button className="w-8 h-8 flex items-center justify-center rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors">2</button>
                 <button className="w-8 h-8 flex items-center justify-center rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors">3</button>
-                <button className="w-8 h-8 flex items-center justify-center rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <polyline points="9 18 15 12 9 6"/>
-                  </svg>
-                </button>
+                <button className="w-8 h-8 flex items-center justify-center rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors"><svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6"/></svg></button>
+              </div>
+            </div>
+          </div>
+
+          {/* Orders Cards - Mobile */}
+          <div className="md:hidden flex flex-col gap-3">
+            {orders.map((order, index) => (
+              <div key={index} className="bg-[#0f0f0f] border border-gray-800 rounded-xl p-4">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-xl">{order.icon}</div>
+                    <div>
+                      <div className="font-medium text-sm">{order.service}</div>
+                      <div className="text-xs text-gray-400">{order.platform}</div>
+                    </div>
+                  </div>
+                  <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs border ${
+                    order.statusColor === 'yellow' ? 'bg-yellow-500/10 border-yellow-500/30 text-yellow-500' :
+                    order.statusColor === 'green' ? 'bg-green-500/10 border-green-500/30 text-green-500' :
+                    order.statusColor === 'pink' ? 'bg-pink-500/10 border-pink-500/30 text-pink-500' :
+                    order.statusColor === 'purple' ? 'bg-purple-500/10 border-purple-500/30 text-purple-500' :
+                    'bg-red-500/10 border-red-500/30 text-red-500'
+                  }`}>
+                    {order.progress > 0 && order.progress < 100 && <span className="w-1.5 h-1.5 bg-current rounded-full animate-pulse" />}
+                    {order.status}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between text-xs text-gray-400 mb-3">
+                  <span className="font-mono">{order.id}</span>
+                  <span>{order.date} · {order.time}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="flex-1 bg-gray-800 rounded-full h-1.5 overflow-hidden">
+                    <div className={`h-full ${order.statusColor === 'yellow' ? 'bg-yellow-500' : order.statusColor === 'green' ? 'bg-green-500' : order.statusColor === 'pink' ? 'bg-pink-500' : 'bg-gray-700'}`} style={{ width: `${order.progress}%` }} />
+                  </div>
+                  <span className="text-xs text-gray-400">{order.progress}%</span>
+                </div>
+              </div>
+            ))}
+            <div className="flex items-center justify-between py-2">
+              <div className="text-xs text-gray-400">1-5 من 24 طلب</div>
+              <div className="flex items-center gap-1.5">
+                <button className="w-7 h-7 flex items-center justify-center rounded-lg bg-gray-800"><svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6"/></svg></button>
+                <button className="w-7 h-7 flex items-center justify-center rounded-lg bg-purple-600 text-white text-xs">1</button>
+                <button className="w-7 h-7 flex items-center justify-center rounded-lg bg-gray-800 text-xs">2</button>
+                <button className="w-7 h-7 flex items-center justify-center rounded-lg bg-gray-800"><svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6"/></svg></button>
               </div>
             </div>
           </div>

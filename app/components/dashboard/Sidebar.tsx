@@ -23,6 +23,7 @@ export default function Sidebar({ isOpen, activeSection, setActiveSection }: Sid
     { icon: 'new-service', label: 'طلب خدمة جديدة' },
     { icon: 'list', label: 'سجل الطلبات' },
     { icon: 'question', label: 'الدعم الفني' },
+    { icon: 'code', label: 'طلبات برمجة' },
   ];
 
   const renderIcon = (icon: string) => {
@@ -58,6 +59,12 @@ export default function Sidebar({ isOpen, activeSection, setActiveSection }: Sid
       <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
         <line x1="9" y1="3" x2="9" y2="21"/>
+      </svg>
+    );
+    if (icon === 'code') return (
+      <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <polyline points="16 18 22 12 16 6"/>
+        <polyline points="8 6 2 12 8 18"/>
       </svg>
     );
     if (icon === 'question') return (
@@ -122,7 +129,7 @@ export default function Sidebar({ isOpen, activeSection, setActiveSection }: Sid
       {/* Mobile Hamburger Button */}
       <button
         onClick={() => setMobileOpen(true)}
-        className="lg:hidden fixed top-4 right-4 z-50 w-10 h-10 bg-[#0a0a0a] border border-gray-700 rounded-lg flex items-center justify-center"
+        className="lg:hidden fixed top-3 right-3 z-50 w-9 h-9 bg-[#0a0a0a] border border-gray-700 rounded-lg flex items-center justify-center"
       >
         <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <line x1="3" y1="6" x2="21" y2="6"/>

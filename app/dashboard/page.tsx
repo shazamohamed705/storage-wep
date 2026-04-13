@@ -97,6 +97,15 @@ export default function Dashboard() {
     <div className="min-h-screen bg-black text-white" dir="rtl">
       <Sidebar isOpen={sidebarOpen} activeSection={activeSection} setActiveSection={setActiveSection} />
       
+      {/* Floating + Button */}
+      <a
+        href="/new-service"
+        className="fixed bottom-8 left-8 z-50 w-14 h-14 rounded-full flex items-center justify-center text-white text-3xl font-light transition-all hover:scale-110"
+        style={{ background: '#EC1BB1', boxShadow: '0 0 25px 8px rgba(236,27,177,0.6), 0 0 50px 15px rgba(236,27,177,0.3)' }}
+      >
+        +
+      </a>
+      
       <div className={`transition-all duration-300 ${sidebarOpen ? 'lg:mr-80' : 'mr-0'} pb-20 lg:pb-0`}>
         {activeSection === 0 && <Header />}
         
@@ -453,6 +462,119 @@ export default function Dashboard() {
               </div>
             </div>
           )}
+          {activeSection === 8 && (
+            <div className="w-full max-w-[1240px] mx-auto px-2 sm:px-4">
+              {/* Header */}
+              <div className="flex flex-col md:flex-row md:items-start justify-between mb-8 gap-4">
+                <div className="pr-12 lg:pr-0">
+                  <h1 className="text-2xl sm:text-3xl font-bold flex items-center gap-3">طلبات برمجة 💻</h1>
+                  <p className="text-gray-400 mt-1 text-sm">تابع حالة تنفيذ مشاريعك المخصصة وحمل ملفاتك النهائية</p>
+                </div>
+                <button className="flex items-center gap-2 px-4 py-2 bg-black border border-gray-700 rounded-lg hover:bg-gray-900 transition-colors w-fit text-sm">
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                  تصدير CSV
+                </button>
+              </div>
+
+              {/* Filter Tabs */}
+              <div className="flex flex-wrap gap-3 mb-8">
+                {[
+                  { id: 'all', label: 'الكل', count: 8, bg: '#EC1BB1', glow: 'rgba(236,27,177,0.7)', icon: (
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                  )},
+                  { id: 'delivered', label: 'تم التسليم', bg: '#22c55e', glow: 'rgba(34,197,94,0.7)', icon: (
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  )},
+                  { id: 'in-progress', label: 'جاري', bg: '#3b82f6', glow: 'rgba(59,130,246,0.7)', icon: (
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  )},
+                  { id: 'review', label: 'قيد المراجعة', bg: '#eab308', glow: 'rgba(234,179,8,0.7)', icon: (
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  )},
+                ].map(tab => (
+                  <button key={tab.id}
+                    onClick={() => setFilterStatus(tab.id)}
+                    className="flex items-center gap-2 px-6 py-2.5 rounded-full text-base font-bold transition-all text-white"
+                    style={{
+                      background: tab.bg,
+                      boxShadow: `0 0 20px 6px ${tab.glow}, 0 0 45px 12px ${tab.glow.replace('0.7', '0.3')}`,
+                      transform: filterStatus === tab.id ? 'scale(1.08)' : 'scale(1)',
+                    }}>
+                    {tab.icon}
+                    {tab.label}
+                    {tab.count && <span className="w-5 h-5 rounded-full flex items-center justify-center text-xs bg-white/25">{tab.count}</span>}
+                  </button>
+                ))}
+              </div>
+
+              {/* Orders Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+                {[
+                  { id: 'PRJ-001', title: 'نظام إدارة الحجوزات الذكي', type: 'موقع ويب', status: 'تم التسليم', statusColor: 'green', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80', date: '10 أبريل 2026', price: '$850' },
+                  { id: 'PRJ-002', title: 'تطبيق متجر إلكتروني', type: 'تطبيق موبايل', status: 'جاري', statusColor: 'blue', image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&q=80', date: '8 أبريل 2026', price: '$1,200' },
+                  { id: 'PRJ-003', title: 'بوت واتساب للدعم', type: 'بوت ذكاء اصطناعي', status: 'قيد المراجعة', statusColor: 'yellow', image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=400&q=80', date: '5 أبريل 2026', price: '$400' },
+                  { id: 'PRJ-004', title: 'لوحة تحكم تحليلات', type: 'داشبورد', status: 'تم التسليم', statusColor: 'green', image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=400&q=80', date: '1 أبريل 2026', price: '$650' },
+                  { id: 'PRJ-005', title: 'منصة تعليمية أونلاين', type: 'موقع ويب', status: 'جاري', statusColor: 'blue', image: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?w=400&q=80', date: '28 مارس 2026', price: '$2,000' },
+                  { id: 'PRJ-006', title: 'نظام نقاط البيع', type: 'تطبيق سطح مكتب', status: 'قيد المراجعة', statusColor: 'yellow', image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=400&q=80', date: '25 مارس 2026', price: '$900' },
+                ].filter(p => {
+                  if (filterStatus === 'all') return true;
+                  if (filterStatus === 'delivered') return p.status === 'تم التسليم';
+                  if (filterStatus === 'in-progress') return p.status === 'جاري';
+                  if (filterStatus === 'review') return p.status === 'قيد المراجعة';
+                  return true;
+                }).map(project => (
+                  <div key={project.id} className="rounded-2xl overflow-hidden border border-gray-800 bg-[#0f0f0f] hover:border-gray-600 transition-all group">
+                    {/* Image */}
+                    <div className="relative h-44 overflow-hidden">
+                      <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                      {/* Badges */}
+                      <div className="absolute top-3 right-3 flex gap-2">
+                        <span className={`px-3 py-1 rounded-full text-xs font-bold ${
+                          project.statusColor === 'green' ? 'bg-green-500 text-white' :
+                          project.statusColor === 'blue' ? 'bg-blue-500 text-white' :
+                          'bg-yellow-500 text-black'
+                        }`}>{project.status}</span>
+                      </div>
+                      <div className="absolute top-3 left-3">
+                        <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#EC1BB1] text-white">{project.type}</span>
+                      </div>
+                      {/* Monitor icon bottom left */}
+                      <div className="absolute bottom-3 left-3">
+                        <svg className="w-5 h-5 text-white/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                      </div>
+                    </div>
+                    {/* Content */}
+                    <div className="p-4">
+                      <h3 className="text-white font-bold text-base mb-1">{project.title}</h3>
+                      <div className="flex items-center justify-between text-xs text-gray-500 mb-3">
+                        <span>{project.date}</span>
+                        <span className="font-mono text-gray-400">{project.id}</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-[#EC1BB1] font-bold">{project.price}</span>
+                        <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors text-xs text-gray-300">
+                          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                          </svg>
+                          تحميل الملف
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
         </main>
       </div>
     </div>

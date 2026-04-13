@@ -15,7 +15,7 @@ export default function Header() {
         </div>
 
         {/* Logo on mobile - links to home */}
-        <div className="sm:hidden">
+        <div className="sm:hidden flex-1 flex justify-center pl-10">
           <Link href="/">
             <img src="/16748711948c681c74613bd74259d711f0030872.png" alt="Logo" className="h-8 cursor-pointer"/>
           </Link>

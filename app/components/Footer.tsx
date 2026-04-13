@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="relative py-20 overflow-hidden" style={{ background: '#000000' }}>
+    <footer className="relative py-20 overflow-hidden" style={{ background: '#000000', borderRadius: '60px 60px 0 0' }}>
       {/* Gradient line at top */}
       <div className="absolute top-0 left-0 right-0 h-[1px]" style={{ background: 'linear-gradient(90deg, #050507 0%, #881BE1 20%, #EC1BB1 50%, #EBE448 80%, #050507 100%)', opacity: 0.3 }}></div>
       

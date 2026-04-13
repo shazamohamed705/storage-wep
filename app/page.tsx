@@ -7,6 +7,9 @@ import TwitterSection from './components/TwitterSection';
 import FacebookSection from './components/FacebookSection';
 import InstagramSection from './components/InstagramSection';
 import PricingSection from './components/PricingSection';
+import SolutionsSection from './components/SolutionsSection';
+import TeamSection from './components/TeamSection';
+import TestimonialsSection from './components/TestimonialsSection';
 import Footer from './components/Footer';
 
 export default function Home() {
@@ -21,6 +24,9 @@ export default function Home() {
       <FacebookSection />
       <InstagramSection />
       <PricingSection />
+      <SolutionsSection />
+      <TeamSection />
+      <TestimonialsSection />
       <Footer />
     </div>
   );
